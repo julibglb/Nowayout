@@ -1,0 +1,30 @@
+@use "sass:map";
+@use "sass:meta";
+@use "variables";
+
+//
+// Screen sizes function
+// -----------------------------------------------------------------------------
+
+@function screenSize($key) {
+
+    @if map.has-key(variables.$screenSizeMap, $key) {
+        @return map.get(variables.$screenSizeMap, $key);
+    }
+
+    @warn "Unknown #{$key} in $screenSizeMap.";
+    @return null;
+}
+
+//
+// Breakpoint Mixin
+// -----------------------------------------------------------------------------
+
+@mixin breakpoint($size) {
+    @if meta.type-of($size) == "number" {
+        @media (min-width: $size) { @content; }
+    }
+    @else {
+        @media (min-width: screenSize($size)) { @content; }
+    }
+}
