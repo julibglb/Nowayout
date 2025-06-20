@@ -1,0 +1,211 @@
+@use "helpers/mixins";
+
+footer {
+    background-color: #121212;
+    background-image: radial-gradient(circle at 50% 100%, #c4c4c4, rgba(199, 150, 82, 0.23) 0%, rgba(0, 0, 0, 0) 71%);
+    padding: 80px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+
+    @include mixins.breakpoint("large") {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 180px;
+        padding: 125px 125px 115px;
+        height: 380px;
+    }
+}
+
+.logo-in-footer {
+    width: 234px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @include mixins.breakpoint("large") {
+        width: 660px;
+        height: 160px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: #f7f5f9;
+
+        @include mixins.hoverEffect()
+    }
+}
+
+.back-arrow {
+    align-items: center;
+    background: url('https://assets.nowayout-escape.at/images/footer-arrow-border.svg?460f53f51215cc06b5d7c0e2c2ebf9c2');
+    cursor: pointer;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    width: 60px;
+    position: absolute;
+    top: 150px;
+    right: 45px;
+    transition: background-color 0.8s ease-in-out;
+
+    @include mixins.breakpoint("large") {
+        top: 125px;
+        right: 125px;
+    }
+
+    &:hover {
+        background-color: rgba(255, 0, 0, 0.349);
+    }
+}
+
+.footer-lang {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    @include mixins.breakpoint("large") {
+        position: absolute;
+        right: 125px;
+        top: 260px;
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.3);
+        transition: color 0.3s ease-in-out;
+        cursor: pointer;
+
+        &.active-lang {
+            color: #f7f5f9;
+        }
+
+        @include mixins.breakpoint("large") {
+            &:hover {
+                color: #f7f5f9;
+            }
+        }
+    }
+}
+
+.footer-smm {
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    @include mixins.breakpoint("large") {
+        position: absolute;
+        right: 125px;
+        bottom: 115px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.customer-service {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    @include mixins.breakpoint("large") {
+        position: absolute;
+        bottom: 115px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    a {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.71;
+        color: #f7f5f9;
+        text-decoration: none;
+
+        @include mixins.hoverEffect()
+    }
+}
+
+.footer-location {
+    p {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 25px;
+
+        @include mixins.breakpoint("large") {
+            position: absolute;
+            top: 190px;
+            left: 125px;
+        }
+    }
+}
+
+.footer-payment {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include mixins.breakpoint("large") {
+        position: absolute;
+        top: 350px;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.footer-payment-list {
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include mixins.breakpoint("large") {
+        width: 340px;
+        max-width: none;
+    }
+}
+
+.footer-copyrite {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+
+    @include mixins.breakpoint("large") {
+        position: absolute;
+        left: 125px;
+        bottom: 115px;
+    }
+}

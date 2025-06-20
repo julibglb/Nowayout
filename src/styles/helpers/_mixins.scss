@@ -21,10 +21,28 @@
 // -----------------------------------------------------------------------------
 
 @mixin breakpoint($size) {
-    @if meta.type-of($size) == "number" {
-        @media (min-width: $size) { @content; }
+    @if meta.type-of($size)=="number" {
+        @media (min-width: $size) {
+            @content;
+        }
     }
+
     @else {
-        @media (min-width: screenSize($size)) { @content; }
+        @media (min-width: screenSize($size)) {
+            @content;
+        }
+    }
+}
+
+//
+// Mixin to add transition and hover color effect
+// -----------------------------------------------------------------------------
+
+@mixin hoverEffect($color: #e50012, $transition: 0.5s ease) {
+    transition: color $transition, fill $transition;
+
+    &:hover {
+        color: $color;
+        fill: $color;
     }
 }
